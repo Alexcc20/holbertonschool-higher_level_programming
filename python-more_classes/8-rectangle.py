@@ -87,3 +87,22 @@ class Rectangle:
             return ("")
 
         rect = []
+<<<<<<< HEAD
+=======
+        for i in range(self.__height):
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
+
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
+
+    def __del__(self):
+        """Print a message for every deletion of a Rectangle."""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
+>>>>>>> 3824cb29d9d406914e1a767620441e66e788034c
