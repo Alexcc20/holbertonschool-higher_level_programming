@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+# tests/0-add_integer.txt
+
+# Import the function to test
+from 0-add_integer import add_integer
+
+# Test case 1: Adding two integers
+print(add_integer(1, 2))  # Expected output: 3
+
+# Test case 2: Adding an integer and the default value
+print(add_integer(10))  # Expected output: 108
+
+# Test case 3: Adding two floats
+print(add_integer(1.2, 2.3))  # Expected output: 3 (1.2 and 2.3 are cast to 1 and 2)
+
+# Test case 4: Adding an integer and a float
+print(add_integer(1, 2.9))  # Expected output: 3 (2.9 is cast to 2)
+
+# Test case 5: Adding negative numbers
+print(add_integer(-1, -2))  # Expected output: -3
+
+# Test case 6: Adding a negative float
+print(add_integer(-1.9, 2))  # Expected output: 0 (-1.9 is cast to -1)
+
+# Test case 7: Invalid type for a
+try:
+    print(add_integer("a", 2))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 8: Invalid type for b
+try:
+    print(add_integer(2, "b"))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 9: Invalid types for both a and b
+try:
+    print(add_integer("a", "b"))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
