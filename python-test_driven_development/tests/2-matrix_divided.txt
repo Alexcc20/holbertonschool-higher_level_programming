@@ -1,0 +1,101 @@
+#!/usr/bin/python3
+# tests/2-matrix_divided.txt
+
+# Import the function to test
+from 2-matrix_divided import matrix_divided
+
+# Test case 1: Normal case with integer elements
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+div = 1
+print(matrix_divided(matrix, div))  # Expected output: [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+# Test case 2: Normal case with float elements
+matrix = [
+    [1.5, 2.5, 3.5],
+    [4.5, 5.5, 6.5]
+]
+div = 2
+print(matrix_divided(matrix, div))  # Expected output: [[0.75, 1.25, 1.75], [2.25, 2.75, 3.25]]
+
+# Test case 3: Division resulting in rounding
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+div = 3
+print(matrix_divided(matrix, div))  # Expected output: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test case 4: Division by a float
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+div = 2.0
+print(matrix_divided(matrix, div))  # Expected output: [[0.5, 1.0], [1.5, 2.0]]
+
+# Test case 5: Invalid matrix with non-number elements
+try:
+    matrix = [
+        [1, '2', 3],
+        [4, 5, 6]
+    ]
+    div = 1
+    print(matrix_divided(matrix, div))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 6: Invalid matrix with rows of different sizes
+try:
+    matrix = [
+        [1, 2, 3],
+        [4, 5]
+    ]
+    div = 1
+    print(matrix_divided(matrix, div))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 7: Invalid divisor (not a number)
+try:
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+    div = "2"
+    print(matrix_divided(matrix, div))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 8: Division by zero
+try:
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+    div = 0
+    print(matrix_divided(matrix, div))  # Expected output: ZeroDivisionError
+except ZeroDivisionError as e:
+    print(e)
+
+# Test case 9: Empty matrix
+try:
+    matrix = []
+    div = 1
+    print(matrix_divided(matrix, div))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
+# Test case 10: Matrix with empty rows
+try:
+    matrix = [
+        [],
+        [4, 5, 6]
+    ]
+    div = 1
+    print(matrix_divided(matrix, div))  # Expected output: TypeError
+except TypeError as e:
+    print(e)
+
