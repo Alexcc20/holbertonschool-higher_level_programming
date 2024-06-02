@@ -38,7 +38,7 @@ def add_user():
 
     # Check if username already exists
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "User already exists with this username"}), 409
 
     # Add the new user
     users[username] = {
@@ -54,3 +54,4 @@ def add_user():
 
 if __name__ == "__main__":
     app.run()
+
