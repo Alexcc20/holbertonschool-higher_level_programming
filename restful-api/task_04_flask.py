@@ -2,10 +2,8 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
+# Initialize an empty dictionary to store users
+users = {}
 
 @app.route('/')
 def home():
@@ -13,6 +11,7 @@ def home():
 
 @app.route('/data')
 def get_data():
+    # Return a list of all usernames
     usernames = list(users.keys())
     return jsonify(usernames)
 
@@ -33,9 +32,15 @@ def add_user():
     data = request.get_json()
     username = data.get('username')
 
+    # Check if username is provided
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+
+    # Check if username already exists
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
+    # Add the new user
     users[username] = {
         "username": username,
         "name": data.get('name'),
