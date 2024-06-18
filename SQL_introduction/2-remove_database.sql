@@ -18,4 +18,5 @@ DATABASE="hbtn_0c_0"
 # The -p option specifies the MySQL password
 # The -h option specifies the MySQL host
 # The -e option allows you to pass the SQL command to be executed
-mysql -u"$USER" -p"$PASSWORD" -h"$HOST" -e "DROP DATABASE IF EXISTS $DATABASE;"
+
+mysql --user="$USER" --password="$PASSWORD" --host="$HOST" --execute="DROP DATABASE IF EXISTS $DATABASE;"
