@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Script to delete the database hbtn_0c_0 in your MySQL server.
+# If the database hbtn_0c_0 doesn’t exist, the script will not fail.
+# You are not allowed to use the SELECT or SHOW statements.
+
 # MySQL credentials
 # Replace 'your_mysql_username' and 'your_mysql_password' with your actual MySQL username and password
 USER="your_mysql_username"
